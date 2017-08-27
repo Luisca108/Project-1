@@ -1,0 +1,33 @@
+body {
+  background-image: url("background2.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 658px;
+}
+
+#skeleton {
+  background-image: : url("character3.gif");
+  position: absolute;
+  left: 0;
+  margin-top: 28%;
+}
+
+#pig {
+  background-image: url("pig.gif");
+  position: absolute;
+  left: 0
+}
+
+/*#ghost2 {
+  background-image: url("ghost.gif");
+  position: absolute;
+  right: 0;
+}*/
+
+#container {
+  position: relative;
+  /*border: 5px solid black;*/
+  width: 99%;
+  height: 657px;
+}
