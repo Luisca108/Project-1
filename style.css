@@ -4,25 +4,40 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 658px;
+  overflow: hidden;
 }
 
 #skeleton {
   background-image: : url("character3.gif");
   position: absolute;
   left: 0;
-  margin-top: 28%;
+  margin-top: 36%;
+}
+
+#skeleton img {
+  height: 150px;
 }
 
 #pig {
   background-image: url("pig.gif");
   position: absolute;
-  left: 0
+  left: 0;
 }
 
-/*#ghost2 {
-  background-image: url("ghost.gif");
-  position: absolute;
-  right: 0;
+/*.noFlip {
+  transform: rotateY(0deg);
+}
+
+.flip3d {
+  transform: rotateY(180deg);
+}*/
+
+/*.izqueirda {
+  rotation: 180deg;
+}
+
+.derecha {
+  rotation: 0deg;
 }*/
 
 #container {
