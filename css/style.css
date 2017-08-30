@@ -1,5 +1,5 @@
 body {
-  background-image: url("background2.gif");
+  background-image: url("../images/background2.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +8,7 @@ body {
 }
 
 #skeleton {
-  background-image: : url("character3.gif");
+  background-image: : url("../images/character3.gif");
   position: absolute;
   left: 0;
   margin-top: 36%;
@@ -19,26 +19,24 @@ body {
 }
 
 #pig {
-  background-image: url("pig.gif");
   position: absolute;
-  left: 0;
+  background-image: url("../images/pig.gif");
+  background-repeat: no-repeat;
+  left: 0px;
 }
 
-/*.noFlip {
-  transform: rotateY(0deg);
+
+#sword {
+  position: absolute;
+  margin-top: 34%;
+  margin-left: 35px;
+  left: 0px;
+  bottom: 0px;
 }
 
-.flip3d {
-  transform: rotateY(180deg);
-}*/
-
-/*.izqueirda {
-  rotation: 180deg;
+#sword img {
+  height: 120px;
 }
-
-.derecha {
-  rotation: 0deg;
-}*/
 
 #container {
   position: relative;

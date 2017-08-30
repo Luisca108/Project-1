@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
     <title>My Game!</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="./js/board.js"></script>
+    <script type="text/javascript" src="./js/player.js"></script>
+    <script type="text/javascript" src="./js/enemy.js"></script>
+    <script type="text/javascript" src="./js/weapon.js"></script>
+    <script type="text/javascript" src="./js/controller.js"></script>
+
   </head>
   <body>
 
     <div id="container">
 
       <div id="pig">
-        <img src="pig.gif" alt="pig">
+        <img src="./images/pig.gif" alt="pig">
+      </div>
+
+      <div id="sword">
+        <img src="./images/sword.png" alt="sword">
       </div>
 
 
       <div id="skeleton">
-        <img src="character3.gif" alt="character">
+        <img src="./images/character3.gif" alt="character">
       </div>
 
     </div>
@@ -26,12 +37,5 @@
     <audio autoplay loop id="bg">
        <source src="http://myspace.familylobby.com/FAM109321/FileDownloads/Starwars%20The%20Imperial%20March%20(Darth%20Vader's%20Theme)%20-%20Star%20Wars%20-%20The%20Empire%20Strikes%20Back%20Original%20Soundtrack%20-%2001.mp3"/>
     </audio>
-
-
-
-
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <script type="text/javascript" src="myGame.js"></script>
   </body>
 </html>
