@@ -6,8 +6,8 @@ $(document).ready(function() {
   var player = new Player(0);
   var enemy = new Enemy(0);
   var weapon = new Weapon(0);
+  var fire = new Fire(0);
   setInterval(checkControls, 40)
-  setInterval(checkWeapon, 40)
   setInterval(pigMovement, 1000 / fps)
 
   $(document).keydown(function(e) {
@@ -19,28 +19,37 @@ $(document).ready(function() {
 
   //player
   function checkControls() {
+    $("#sword").appendTo($("#skeleton"));
 
     if (keys[39]) {
       if (player.positionX < 1336.500 - 150) {
         player.goRigth();
-        weapon.goRigth();
         skeleton.style.left = player.positionX + "px";
-        sword.style.left = weapon.positionX + "px";
         $("#skeleton").css("transform", "rotateY(360deg)");
       }
     } else if (keys[37]) {
       if (player.positionX > 0) {
         player.goLeft();
-        weapon.goLeft();
         skeleton.style.left = player.positionX + "px";
-        sword.style.left = weapon.positionX + "px";
         $("#skeleton").css("transform", "rotateY(180deg)");
       }
+    }
+    if (keys[32]) {
+      weapon.shoot();
+      sword.style.bottom = weapon.positionX + "px";
+      $("#sword").show();
+    } else {
+      $("#sword").hide();
     }
   }
 
   //pig
   function pigMovement() {
+
+    $("#fire").appendTo($("#pig"));
+    var newtop = $('#fire').position().top + 1;
+    $('#fire').css('top', newtop + 'px');
+    setTimeout(function(){ $('#fire').css('top', newtop + 'px');; }, 3000);
 
     switch (enemy.orientation) {
 
@@ -48,8 +57,7 @@ $(document).ready(function() {
 
         if (enemy.positionX <= screenWidth) {
           enemy.goRigth();
-        }
-        else {
+        } else {
           enemy.flip()
         }
         break;
@@ -58,8 +66,7 @@ $(document).ready(function() {
 
         if (enemy.positionX >= 0) {
           enemy.goLeft();
-        }
-        else {
+        } else {
           enemy.flip()
         }
         break;
@@ -69,26 +76,15 @@ $(document).ready(function() {
     if (enemy.positionX <= screenWidth) {
       pig.style.left = enemy.positionX + "px";
 
-    } else if(enemy.positionX >= -1) {
-        pig.style.left = enemy.positionX + "px";
-     }
-
-
-
-  }
-
-
-  //weapon
-  function checkWeapon() {
-
-    if (keys[32]) {
-      weapon.goUp();
-      sword.style.bottom = weapon.positionX + "px";
-      $("#sword").show();
-    } else {
-      $("#sword").hide();
+    } else if (enemy.positionX >= -1) {
+      pig.style.left = enemy.positionX + "px";
     }
+
   }
+
+
+//collision
+
 
 
 });

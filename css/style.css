@@ -25,6 +25,11 @@ body {
   left: 0px;
 }
 
+#fire{
+  position: absolute;
+  top: 0px;
+}
+
 
 #sword {
   position: absolute;

@@ -1,15 +1,19 @@
-function Weapon(positionX) {
+function Weapon(positionX, weapon) {
   this.positionX = positionX;
+  this.weapon = weapon;
 }
 
-Weapon.prototype.goUp = function (){
-  this.positionX +=70
+Weapon.prototype.shoot = function (){
+  this.positionX +=30
 }
 
-Weapon.prototype.goLeft = function (){
-  this.positionX -=8
+
+Weapon.prototype.reset = function (sword) {
+  document.getElementById("sword").reset()
 }
 
-Weapon.prototype.goRigth = function (){
-  this.positionX +=8
+Weapon.prototype.createNewWeapon = function() {
+  setTimeOut(function(){
+    this.reset(this.sword)
+  }.bind(this), 500)
 }
