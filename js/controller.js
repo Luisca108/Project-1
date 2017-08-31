@@ -1,97 +1,46 @@
+// VARIABLE TO USE LATER
 var keys = {};
-var fps = 200;
 var screenWidth = 1069;
+var fire = [];
+var dotsOfFire = 10;
+// CONSTRUCT NEW OBJECTS
+var player = new Player(0);
+var enemy = new Enemy(0);
 
+// DOCUMENT READY(
 $(document).ready(function() {
-  var player = new Player(0);
-  var enemy = new Enemy(0);
-  var weapon = new Weapon(0);
-  var fireEnemy = new Fire(0);
-  setInterval(checkControls, 40)
-  setInterval(pigMovement, 1000 / fps)
+  setInterval(movementChar, 40);
+  setInterval(function(){
+    _rainOfFire(dotsOfFire);
+    //fireEnemy.check();
+    console.log(fire);
+  }, 1000)
+  setInterval(_updateAll,40);
 
-
-  $(document).keydown(function(e) {
+$(document).keydown(function(e) {
     keys[e.keyCode] = true;
   }).keyup(function(e) {
     delete keys[e.keyCode];
   });
+// FUNCTION TO REFRESH MOVEMENT
+  function movementChar () {
+    player.movement();
+    enemy.movement();
+  }
 
-
-  //player
-  function checkControls() {
-    $("#sword").appendTo($("#skeleton"));
-
-    if (keys[39]) {
-      if (player.positionX < 1336.500 - 150) {
-        player.goRigth();
-        skeleton.style.left = player.positionX + "px";
-        $("#skeleton").css("transform", "rotateY(360deg)");
-      }
-    } else if (keys[37]) {
-      if (player.positionX > 0) {
-        player.goLeft();
-        skeleton.style.left = player.positionX + "px";
-        $("#skeleton").css("transform", "rotateY(180deg)");
-      }
-    }
-    if (keys[32]) {
-      weapon.shoot();
-      sword.style.bottom = weapon.positionX + "px";
-      $("#sword").show();
-    } else {
-      $("#sword").hide();
+  function _rainOfFire(x) {
+    for (var i = 0; i < x-fire.length; i++){
+      var speed = Math.random() * 10 + 10;
+      fire.push(new Fire(speed, enemy.positionX - 200));
     }
   }
 
-  //pig
-  function pigMovement() {
-
-    $("#fire").appendTo($("#pig"));
-    var newtop = $('#fire').position().top + 1;
-    $('#fire').css('top', newtop + 'px');
-    setTimeout(function(){ $('#fire').css('top', newtop + 'px');; }, 3000);
-
-    switch (enemy.orientation) {
-
-      case "right":
-
-        if (enemy.positionX <= screenWidth) {
-          enemy.goRigth();
-        } else {
-          enemy.flip()
-        }
-        break;
-
-      case "left":
-
-        if (enemy.positionX >= 0) {
-          enemy.goLeft();
-        } else {
-          enemy.flip()
-        }
-        break;
-    }
-
-    // updateenemy on screenWidth
-    if (enemy.positionX <= screenWidth) {
-      pig.style.left = enemy.positionX + "px";
-
-    } else if (enemy.positionX >= -1) {
-      pig.style.left = enemy.positionX + "px";
-    }
-    check();
+  function _updateAll() {
+    fire = fire.filter(function (e) {
+      return !e.flag;
+    })
+    fire.forEach(function (e){
+      e.moveFire();
+    })
   }
-
-
-//collision
-check = function() {
-  var collide = $("#fire").collision("#skeleton");
-
-  if (collide[0]) {
-    
-  }
-}
-
-
 });

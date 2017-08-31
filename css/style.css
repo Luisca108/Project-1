@@ -17,8 +17,6 @@ body {
   height: 180px;
 }
 
-
-
 #pig {
   position: absolute;
   background-image: url("../images/pig.gif");
@@ -29,32 +27,16 @@ body {
   height: 180px;
 }
 
-#fire {
+.fire {
   background-image: url("../images/bullets.gif");
   background-repeat: no-repeat;
   background-size: cover;
   width: 50px;
   height: 60px;
-  position: absolute;
-  top: 0px;
-  margin-left: 150px;
-  margin-top: 120px;
 }
-
-
-#sword {
-  background-image: url("../images/sword.png");
-  position: absolute;
-  margin-top: 34%;
-  margin-left: 35px;
-  left: 0px;
-  bottom: 0px;
-}
-
 
 #container {
   position: relative;
-  /*border: 5px solid black;*/
   width: 99%;
   height: 657px;
 }
