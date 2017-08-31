@@ -6,9 +6,10 @@ $(document).ready(function() {
   var player = new Player(0);
   var enemy = new Enemy(0);
   var weapon = new Weapon(0);
-  var fire = new Fire(0);
+  var fireEnemy = new Fire(0);
   setInterval(checkControls, 40)
   setInterval(pigMovement, 1000 / fps)
+
 
   $(document).keydown(function(e) {
     keys[e.keyCode] = true;
@@ -79,12 +80,18 @@ $(document).ready(function() {
     } else if (enemy.positionX >= -1) {
       pig.style.left = enemy.positionX + "px";
     }
-
+    check();
   }
 
 
 //collision
+check = function() {
+  var collide = $("#fire").collision("#skeleton");
 
+  if (collide[0]) {
+    
+  }
+}
 
 
 });
