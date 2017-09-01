@@ -10,11 +10,9 @@
   <title>When Pigs Fly!!</title>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <script type="text/javascript" src="./js/jquery-collision.min.js"></script>
-  <script type="text/javascript" src="./js/board.js"></script>
   <script type="text/javascript" src="./js/player.js"></script>
   <script type="text/javascript" src="./js/fire.js"></script>
   <script type="text/javascript" src="./js/enemy.js"></script>
-  <script type="text/javascript" src="./js/weapon.js"></script>
   <script type="text/javascript" src="./js/controller.js"></script>
 
 </head>
@@ -22,6 +20,16 @@
 <body>
 
   <div id="container">
+
+    <div class="gameOver"></div>
+
+      <input id="button" type="button" value="" onClick="window.location.reload()">
+
+
+    <div id="health">
+      <img class="vida"src="./images/knigth.png" alt="">
+      <progress id="bar" value="100" max="100"></progress>
+    </div>
 
     <div id="pig"></div>
 

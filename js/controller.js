@@ -2,7 +2,7 @@
 var keys = {};
 var screenWidth = 1069;
 var fire = [];
-var dotsOfFire = 10;
+var dotsOfFire = 4;
 // CONSTRUCT NEW OBJECTS
 var player = new Player(0);
 var enemy = new Enemy(0);
@@ -27,20 +27,25 @@ $(document).keydown(function(e) {
     player.movement();
     enemy.movement();
   }
-
+// var posicion = $('#pig').styte('left')
+console.log();
   function _rainOfFire(x) {
     for (var i = 0; i < x-fire.length; i++){
-      var speed = Math.random() * 10 + 10;
-      fire.push(new Fire(speed, enemy.positionX - 200));
+      var speed = Math.random() * 10 + 3;
+      fire.push(new Fire(speed, enemy.positionX));
+      console.log(enemy.positionX);
+      console.log(fire.positionX);
     }
   }
 
   function _updateAll() {
+    player.check();
     fire = fire.filter(function (e) {
       return !e.flag;
     })
     fire.forEach(function (e){
       e.moveFire();
+
     })
   }
 });

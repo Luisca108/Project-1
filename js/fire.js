@@ -1,7 +1,8 @@
 function Fire(speed, posx) {
   //this.positionX = parseInt(Math.floor(Math.random() * screenWidth));
+  this.life = 100;
   this.positionX = posx;
-  this.positionY = 0;
+  this.positionY = 100;
   this.speed = speed;
   this.flag = false;
   this.element = $("<div>").addClass('fire');
@@ -10,23 +11,15 @@ function Fire(speed, posx) {
     left: this.positionX,
     position: "absolute"
   });
-  $("#pig").append(this.element);
+  // $("#pig").append(this.element);
+  $("#container").append(this.element);
 };
 
 Fire.prototype.goDown = function() {
   this.positionX += 1
 };
 
-Fire.prototype.check = function() {
-  var collide = $(".fire").collision("#skeleton");
-
-  if (collide[0]) {
-    $(".fire").remove();
-  }
-}
-
 Fire.prototype.moveFire = function() {
-
  this.positionY = (this.positionY + this.speed);
  this.element.css({
    top: this.positionY,
